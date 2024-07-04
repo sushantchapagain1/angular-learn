@@ -1,0 +1,6 @@
+<app-navbar></app-navbar>
+<app-post
+  [fromParent]="parentToChildData"
+  (messageEvent)="receiveMessage($event)"
+></app-post>
+<p>{{ childMessageToParent }}</p>
