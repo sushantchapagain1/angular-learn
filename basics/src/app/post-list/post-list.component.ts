@@ -29,7 +29,12 @@ export class PostListComponent {
     }
   }
 
-  handleKeyUpEventFiltering() {
-    console.log('Enter pressed received from event filtering of angular.');
+  handleKeyUpEventFiltering(e: Event) {
+    const inputElement = e.target as HTMLInputElement;
+    console.log(inputElement.value);
+  }
+
+  templateVariable(val: string) {
+    console.log(val);
   }
 }

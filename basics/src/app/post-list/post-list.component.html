@@ -42,6 +42,22 @@
 
 <input
   type="text"
-  (keyup.enter)="handleKeyUpEventFiltering()"
+  (keyup.enter)="handleKeyUpEventFiltering($event)"
   placeholder="Event filtering.."
 />
+
+<!-- without using  # the hash identifier as templete varaible. -->
+<input
+  type="text"
+  (keyup.enter)="handleKeyUpEventFiltering($event)"
+  placeholder="Without templete variable .."
+/>
+
+<input
+  type="text"
+  (keyup.enter)="templateVariable(username.value)"
+  #username
+  placeholder="Templete variable .."
+/>
+
+<!-- two way data binding cleaner way -->
