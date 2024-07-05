@@ -1,1 +1,41 @@
 <h1>Directives</h1>
+
+<!-- looping arrays *ngFor -->
+<ul>
+  <li *ngFor="let post of posts">{{ post }}</li>
+</ul>
+
+<!-- fetch array with objects -->
+
+<button (click)="addNewPost()">Add new data</button>
+
+<!-- if this matches then show. -->
+<div *ngIf="arrayWithObject.length > 0; then postList; else noPosts"></div>
+
+<ng-template #postList>
+  <ul>
+    <!-- pipe to convert to -->
+    <!-- <li *ngFor="let postObj of arrayWithObject">{{ postObj | json }}</li> -->
+    <li *ngFor="let postObj of arrayWithObject">
+      {{ postObj.postTitle }}
+      <button (click)="handleDeletePost(postObj.id)">Delete</button>
+    </li>
+  </ul>
+</ng-template>
+
+<ng-template #noPosts>
+  <p>There are no any posts...</p>
+</ng-template>
+
+<div>
+  <button (click)="handleStepClick('step 1')">Step 1</button>
+  <button (click)="handleStepClick('step 2')">Step 2</button>
+  <button (click)="handleStepClick('step 3')">Step 3</button>
+</div>
+
+<div [ngSwitch]="stepForm">
+  <div *ngSwitchCase="'step 1'">Step 1 form</div>
+  <div *ngSwitchCase="'step 2'">Step 2 form</div>
+  <div *ngSwitchCase="'step 3'">Step 3 form</div>
+  <div *ngSwitchDefault>Something else</div>
+</div>
