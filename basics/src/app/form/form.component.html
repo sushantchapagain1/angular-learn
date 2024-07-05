@@ -1,0 +1,25 @@
+<h2>Forms in angular better way.</h2>
+<form>
+  <!-- need to pass this  import { FormsModule } from '@angular/forms' in app module. -->
+
+  <!-- one way data bining only component dekhi view ma matra transfer grana milxa  -->
+  <!-- style ,class, attribute haru also includes in this one way  -->
+
+  <div>
+    <label>one way compo to view.</label>
+    <input type="text" [value]="textValue" (keyup.enter)="onKeyUp()" />
+  </div>
+
+  <!-- two way data binding cleaner way -->
+  <!-- ngModel makes the two way data binding possible. -->
+  <div>
+    <label>two way compo to view and vice versa.</label>
+    <input
+      type="text"
+      [value]="textValue"
+      name="textValue"
+      [(ngModel)]="textValue"
+      (keyup.enter)="onKeyUp()"
+    />
+  </div>
+</form>
