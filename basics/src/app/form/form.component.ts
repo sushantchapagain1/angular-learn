@@ -5,7 +5,7 @@ import { AfterViewInit, Component } from '@angular/core';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
 })
-export class FormComponent implements AfterViewInit {
+export class FormComponent {
   // userName: string;
   // textValue: string = 'lorem ipsum dolor sit amet';
   // handleKeyUp() {
@@ -21,8 +21,4 @@ export class FormComponent implements AfterViewInit {
   imageUrl: string;
   openUrl: string;
   addBackground: boolean;
-
-  ngAfterViewInit(): void {
-    console.log(this.title, this.openUrl);
-  }
 }

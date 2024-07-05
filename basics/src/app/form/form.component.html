@@ -66,12 +66,24 @@
 
 <div>
   <h2>Outputs</h2>
-  <h3
+  <!-- <h3
     [style.backgroundColor]="addBackground ? 'yellow' : ''"
     [style.padding]="addBackground ? '12px' : ''"
   >
     {{ title }}
+  </h3> -->
+
+  <!-- Solution in multiple style case. -->
+  <h3
+    [ngStyle]="{
+      backgroundColor: addBackground ? 'yellow' : 'white',
+      padding: addBackground ? '12px' : '',
+      display: title ? 'block' : 'none'
+    }"
+  >
+    {{ title }}
   </h3>
+
   <p>{{ desc }}</p>
   <img
     [src]="imageUrl"
