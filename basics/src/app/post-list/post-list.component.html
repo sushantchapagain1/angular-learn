@@ -8,3 +8,40 @@
     <td>{{ post.desc }}</td>
   </tbody>
 </table>
+
+<div class="image-wrapper">
+  <!-- string interpolation use garepani compile bhako code ma property binding nai lanxa.  -->
+  <img src="{{ imageUrl }}" alt="random image" height="200" width="400" />
+
+  <!-- property binding cleaner syntax [] -->
+  <img [src]="imageUrl" alt="random image" height="200" width="400" />
+</div>
+
+<!--  class binding -->
+<h3 [class.text-teal]="shouldBeTeal">Class binding</h3>
+
+<!-- style attribute binding  -->
+<h3
+  [style.fontSize]="largeFontSize ? largeFontSize : 'inherit'"
+  [class.text-teal]="shouldBeTeal"
+>
+  Style attribute binding
+</h3>
+
+<!-- event binding use () -->
+<button (click)="eventBindingAngular()">event binding angular</button>
+
+<!-- event filtering keyup onmouseover haru jasto -->
+
+<!-- normal way to filter manually -->
+<input
+  type="text"
+  placeholder="Event filtering manually.."
+  (keyup)="handleKeyUp($event)"
+/>
+
+<input
+  type="text"
+  (keyup.enter)="handleKeyUpEventFiltering()"
+  placeholder="Event filtering.."
+/>
