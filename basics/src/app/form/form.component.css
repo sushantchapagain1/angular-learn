@@ -1,4 +1,4 @@
-form div {
+/* form div {
   display: flex;
   flex-direction: column;
   margin-top: 24px;
@@ -6,4 +6,27 @@ form div {
 
 form div input {
   width: fit-content;
+} */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+textarea {
+  height: 100px;
+}
+
+form div {
+  display: flex;
+}
+
+* {
+  width: fit-content;
+}
+
+img,
+a {
+  display: block;
 }

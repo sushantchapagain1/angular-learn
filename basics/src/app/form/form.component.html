@@ -1,18 +1,19 @@
 <h2>Forms in angular better way.</h2>
-<form>
-  <!-- need to pass this  import { FormsModule } from '@angular/forms' in app module. -->
 
-  <!-- one way data bining only component dekhi view ma matra transfer grana milxa  -->
-  <!-- style ,class, attribute haru also includes in this one way  -->
+<!-- <form> -->
+<!-- need to pass this  import { FormsModule } from '@angular/forms' in app module. -->
 
-  <div>
+<!-- one way data bining only component dekhi view ma matra transfer grana milxa  -->
+<!-- style ,class, attribute haru also includes in this one way  -->
+
+<!-- <div>
     <label>one way compo to view.</label>
     <input type="text" [value]="textValue" (keyup.enter)="onKeyUp()" />
-  </div>
+  </div> -->
 
-  <!-- two way data binding cleaner way -->
-  <!-- ngModel makes the two way data binding possible. -->
-  <div>
+<!-- two way data binding cleaner way -->
+<!-- ngModel makes the two way data binding possible. -->
+<!-- <div>
     <label>two way compo to view and vice versa.</label>
     <input
       type="text"
@@ -21,5 +22,68 @@
       [(ngModel)]="textValue"
       (keyup.enter)="onKeyUp()"
     />
+  </div> -->
+<!-- </form> -->
+
+<form>
+  <input
+    [value]="title"
+    type="text"
+    name="title"
+    placeholder="title"
+    [(ngModel)]="title"
+  />
+  <textarea
+    [value]="desc"
+    [(ngModel)]="desc"
+    name="desc"
+    placeholder="Details..."
+  ></textarea>
+  <input
+    [value]="imageUrl"
+    [(ngModel)]="imageUrl"
+    type="text"
+    name="imageUrl"
+    placeholder="image url"
+  />
+  <input
+    [value]="openUrl"
+    [(ngModel)]="openUrl"
+    type="text"
+    name="openUrl"
+    placeholder="open url"
+  />
+  <div>
+    <label> add background</label>
+    <input
+      type="checkbox"
+      name="addBackground"
+      [value]="addBackground"
+      [(ngModel)]="addBackground"
+    />
   </div>
 </form>
+
+<div>
+  <h2>Outputs</h2>
+  <h3
+    [style.backgroundColor]="addBackground ? 'yellow' : ''"
+    [style.padding]="addBackground ? '12px' : ''"
+  >
+    {{ title }}
+  </h3>
+  <p>{{ desc }}</p>
+  <img
+    [src]="imageUrl"
+    alt="image of users posting something"
+    height="200"
+    width="300"
+    [style.display]="imageUrl ? 'block' : 'none'"
+  />
+  <a
+    target="_blank"
+    [href]="openUrl"
+    [style.display]="openUrl ? 'block' : 'none'"
+    >More Details.</a
+  >
+</div>
