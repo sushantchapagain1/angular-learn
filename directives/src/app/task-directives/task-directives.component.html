@@ -1,0 +1,33 @@
+<h1>Task directives!</h1>
+
+<form>
+  <input name="name" [(ngModel)]="name" type="text" placeholder="Name" />
+  <input name="email" [(ngModel)]="email" type="email" placeholder="Email" />
+  <textarea
+    name="address"
+    [(ngModel)]="address"
+    placeholder="Address"
+  ></textarea>
+  <button type="submit" (click)="addData()">Save data</button>
+</form>
+
+<table *ngIf="data.length > 0; else noData">
+  <thead>
+    <th>S.N</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>Action</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of data; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.address }}</td>
+      <td><button (click)="removeUser(i)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #noData>No data found.. </ng-template>
