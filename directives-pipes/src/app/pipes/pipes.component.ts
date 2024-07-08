@@ -18,4 +18,8 @@ export class PipesComponent {
     title: 'Hello object title',
   };
   postArr: Array<any> = ['post1', 'post2', 'post3', 'post4', 'post5'];
+  countryDetails = {
+    name: 'Nepal',
+    code: '+977',
+  };
 }
