@@ -9,7 +9,7 @@
 # Node
 /node_modules
 basics/node_modules
-directives/node_modules
+directives-pipes/node_modules
 npm-debug.log
 yarn-error.log
 
