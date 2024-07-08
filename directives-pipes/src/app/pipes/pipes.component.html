@@ -1,0 +1,17 @@
+<p>{{ title | lowercase }}</p>
+<p>{{ title | uppercase }}</p>
+<!-- adds comma -->
+<p>{{ count | number }}</p>
+<p>{{ decimalValue | number : "1.2-2" }}</p>
+<p>{{ productPrice | currency : "NPR" }}</p>
+
+<p>{{ today | date }}</p>
+<p>{{ today | date : "short" }}</p>
+<!-- https://v17.angular.io/api/common/DatePipe -->
+
+<p>{{ testObj | json }}</p>
+
+<!-- multiply by 100 -->
+<h3>{{ 0.567 | percent }}</h3>
+
+<!-- custom pipes -->
