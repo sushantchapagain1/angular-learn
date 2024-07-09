@@ -11,6 +11,7 @@
 basics/node_modules
 directives-pipes/node_modules
 services-prac/node_modules
+routing/node_modules
 forms/node_modules
 npm-debug.log
 yarn-error.log
@@ -40,6 +41,7 @@ directives-pipes/.angular/cache/18.0.7
 services-prac/.angular/cache/18.0.7
 services-prac/.angular/cache/18.0.7
 forms/.angular/cache/18.0.7
+routing/.angular/cache/18.0.7
 .sass-cache/
 /connect.lock
 /coverage
