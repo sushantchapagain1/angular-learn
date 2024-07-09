@@ -11,7 +11,7 @@ import { PostService } from './services/post.service';
   imports: [BrowserModule, AppRoutingModule],
   // proving the providers in the app module so that all components can use.
   // will keep the data in memory once.
-  providers: [PostService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

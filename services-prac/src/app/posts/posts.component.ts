@@ -45,7 +45,7 @@
 
 import { Component, OnInit } from '@angular/core';
 
-import { PostService } from '../services/post.service';
+import { PostInjectService } from '../services/postinject.service';
 
 @Component({
   selector: 'app-posts',
@@ -55,8 +55,8 @@ import { PostService } from '../services/post.service';
 export class PostsComponent implements OnInit {
   posts: Array<any>;
 
-  constructor(private postService: PostService) {
-    this.posts = postService.postList;
+  constructor(private postInjecService: PostInjectService) {
+    this.posts = postInjecService.postList;
   }
   ngOnInit(): void {}
 }
