@@ -42,21 +42,61 @@
         <div *ngIf="email.errors['email']">Invalid email.</div>
       </div>
     </div>
-    <div class="form-group">
-      <label>Address</label>
-      <textarea
-        name="address"
-        cols="30"
-        rows="10"
-        type="text"
-        class="form-control"
-        formControlName="address"
-      ></textarea>
-      <div
-        class="alert alert-danger"
-        *ngIf="address.touched && address.invalid && address.errors"
-      >
-        <div *ngIf="address.errors['required']">Adress is required.</div>
+    <!-- contact details form gorup -->
+    <div formGroupName="contactDetails">
+      <div class="form-group">
+        <label>Address</label>
+        <textarea
+          name="address"
+          cols="30"
+          rows="10"
+          type="text"
+          class="form-control"
+          formControlName="address"
+        ></textarea>
+        <div
+          class="alert alert-danger"
+          *ngIf="address.touched && address.invalid && address.errors"
+        >
+          <div *ngIf="address.errors['required']">Adress is required.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Shipping Address</label>
+        <input
+          name="shippingAddress"
+          type="text"
+          class="form-control"
+          formControlName="shippingAddress"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            shippingAddress.touched &&
+            shippingAddress.invalid &&
+            shippingAddress.errors
+          "
+        >
+          <div *ngIf="shippingAddress.errors['required']">
+            Shipping Address is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Contact Number</label>
+        <input
+          name="contactNo"
+          type="text"
+          class="form-control"
+          formControlName="contactNo"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="contactNo.touched && contactNo.invalid && contactNo.errors"
+        >
+          <div *ngIf="contactNo.errors['required']">Number is required.</div>
+          <div *ngIf="contactNo.errors['pattern']">Number is invalid.</div>
+        </div>
       </div>
     </div>
 

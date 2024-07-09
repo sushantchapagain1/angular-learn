@@ -11,6 +11,7 @@ import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 export class ReactiveFormsComponent {
   form: any;
   emailRegex: string = '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$';
+  contactRegex: string = '[789][0-9]{9}';
   constructor() {
     this.form = new FormGroup({
       fullName: new FormControl('', [
@@ -23,7 +24,16 @@ export class ReactiveFormsComponent {
         // Validators.pattern(this.emailRegex),
         Validators.email,
       ]),
-      address: new FormControl('', Validators.required),
+
+      contactDetails: new FormGroup({
+        // nested form control. adress bhitra multiple object rakhnu xa bhane.
+        address: new FormControl('', Validators.required),
+        shippingAddress: new FormControl('', Validators.required),
+        contactNo: new FormControl('', [
+          Validators.required,
+          Validators.pattern(this.contactRegex),
+        ]),
+      }),
     });
   }
 
@@ -36,7 +46,15 @@ export class ReactiveFormsComponent {
   }
 
   get address() {
-    return this.form.get('address');
+    return this.form.get('contactDetails.address');
+  }
+
+  get shippingAddress() {
+    return this.form.get('contactDetails.shippingAddress');
+  }
+
+  get contactNo() {
+    return this.form.get('contactDetails.contactNo');
   }
 
   handleSubmit() {
