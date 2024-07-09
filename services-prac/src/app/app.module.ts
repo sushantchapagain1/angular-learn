@@ -10,6 +10,7 @@ import { PostService } from './services/post.service';
   declarations: [AppComponent, PostsComponent],
   imports: [BrowserModule, AppRoutingModule],
   // proving the providers in the app module so that all components can use.
+  // will keep the data in memory once.
   providers: [PostService],
   bootstrap: [AppComponent],
 })
