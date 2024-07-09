@@ -35,8 +35,8 @@ yarn-error.log
 # Miscellaneous
 /.angular/cache
 basics/.angular/cache/18.0.7
-directives/.angular/cache/18.0.7
-services-prac/cache/18.0.7
+directives-pipes/.angular/cache/18.0.7
+services-prac/.angular/cache/18.0.7
 .sass-cache/
 /connect.lock
 /coverage
