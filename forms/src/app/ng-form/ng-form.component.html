@@ -3,7 +3,7 @@
 <div class="container">
   <h3>Ng form works!</h3>
   <!-- #f="ngForm" create new instance of form control -->
-  <form #f="ngForm" (submit)="handleSubmit(f)">
+  <form #f="ngForm" (ngSubmit)="handleSubmit(f)">
     <div class="form-group">
       <label>Full name</label>
       <!-- [(ngModel)] for two way data binding ngModel  -->
@@ -45,6 +45,7 @@
         name="email"
         #email="ngModel"
         type="email"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
         class="form-control"
         [ngClass]="{ 'is-invalid': email.touched && email.invalid }"
         ngModel
@@ -57,6 +58,11 @@
           Email is required
         </div>
       </div>
+      <div *ngIf="email.errors && email.errors['pattern']">
+        <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+          Invalid email pattern
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label>Address</label>
@@ -67,9 +73,23 @@
         type="text"
         class="form-control"
         ngModel
+        #address="ngModel"
+        (change)="getValue(address)"
+        [ngClass]="{ 'is-invalid': address.touched && address.invalid }"
+        required
       ></textarea>
+      <div *ngIf="address.errors && address.errors['required']">
+        <div
+          class="alert alert-danger"
+          *ngIf="address.touched && address.invalid"
+        >
+          Address is required
+        </div>
+      </div>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" [disabled]="f.invalid">
+      Submit
+    </button>
   </form>
 </div>

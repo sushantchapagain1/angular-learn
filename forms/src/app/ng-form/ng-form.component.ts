@@ -8,7 +8,7 @@ import { FormControl, NgForm, NgModel } from '@angular/forms';
 })
 export class NgFormComponent {
   handleSubmit(f: NgForm) {
-    console.log(f);
+    console.log(f.value);
   }
   getValue(f: NgModel) {
     console.log(f);
