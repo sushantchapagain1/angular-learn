@@ -1,0 +1,75 @@
+<!-- templete driven approach -->
+
+<div class="container">
+  <h3>Ng form works!</h3>
+  <!-- #f="ngForm" create new instance of form control -->
+  <form #f="ngForm" (submit)="handleSubmit(f)">
+    <div class="form-group">
+      <label>Full name</label>
+      <!-- [(ngModel)] for two way data binding ngModel  -->
+      <input
+        name="fullName"
+        type="text"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': fullName.touched && fullName.invalid }"
+        ngModel
+        #fullName="ngModel"
+        (change)="getValue(fullName)"
+        required
+        minlength="5"
+        maxlength="32"
+      />
+      <div *ngIf="fullName.errors && fullName.errors['required']">
+        <div
+          class="alert alert-danger"
+          *ngIf="fullName.touched && fullName.invalid"
+        >
+          Full name is required
+        </div>
+      </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          fullName.errors &&
+          (fullName.errors['minlength'] || fullName.errors['maxlength'])
+        "
+      >
+        <div *ngIf="fullName.touched && fullName.invalid">
+          Min length of a full name is 5 and max length is 32.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Email address</label>
+      <input
+        name="email"
+        #email="ngModel"
+        type="email"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': email.touched && email.invalid }"
+        ngModel
+        (change)="getValue(email)"
+        required
+      />
+
+      <div *ngIf="email.errors && email.errors['required']">
+        <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+          Email is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Address</label>
+      <textarea
+        name="address"
+        cols="30"
+        rows="10"
+        type="text"
+        class="form-control"
+        ngModel
+      ></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
